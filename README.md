@@ -59,7 +59,6 @@ The meaning of these fields are the following:
 + _value_: the value of the data item to be represented by a single bar in a chart. In the `cities.dat`this is the population of the city in thousands.
 + _category_: a category the data item belong to. This field may be used as a color mapping for individual bars. In the `cities.dat` this is the continent the city belongs to.
 
-You may download several input data files [here](data.zip).
 
 # Interface
 
