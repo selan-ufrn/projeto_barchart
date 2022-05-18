@@ -16,7 +16,7 @@
 
 In this programming assignment you should design and develop a program named **bcr** (**b**ar **c**hart **r**ace) that provides a terminal version of a _bar chart animation_. This type of animation is primarily designed to help us understand data evolution over a period of time.
 
-A bar chart is a **data visualization technique** that is often employed to present categorical data. In this assignment, one bar chart may be composed of up to 15 bars. A bar is represented by a horizontal rectangle whose length corresponds to the data value it represents. See the image below for an example of a single bar chart extracted from the database `cities.dat` that depicts the top 7 most populous cities in the world from 1500 to 2018[^1]. The color represent the continents (the category) the cities belong to.
+A bar chart is a **data visualization technique** that is often employed to present categorical data. In this assignment, one bar chart may be composed of up to 15 bars. A bar is represented by a horizontal rectangle whose length corresponds to the data value it represents. See the image below for an example of a single bar chart extracted from the database `cities.dat` that depicts the top 7 most populous cities in the world from 1500 to 2018[^1]. The color represent the continents (the category) the cities belongs to.
 
 [^1]: This database will be used throughout this document to illustrate some concepts.
 
@@ -55,9 +55,9 @@ The meaning of these fields are the following:
 
 + _time_stamp_:  the time stamp the data was captured on. In the `cities.dat` this is the year the data was captured in.
 + _label_: the data label. In the `cities.dat`this is the name of the city.
-+ _other_related_info_: this is any other information related to the data item _that it is not going to be used in the visualization_. In the `cities.dat` this is the country the city belong to.
++ _other_related_info_: this is any other information related to the data item _that it is not going to be used in the visualization_. In the `cities.dat` this is the country the city belongs to.
 + _value_: the value of the data item to be represented by a single bar in a chart. In the `cities.dat`this is the population of the city in thousands.
-+ _category_: a category the data item belong to. This field may be used as a color mapping for individual bars. In the `cities.dat` this is the continent the city belongs to.
++ _category_: a category the data item belongs to. This field may be used as a color mapping for individual bars. In the `cities.dat` this is the continent the city belongs to.
 
 
 # Interface
@@ -75,7 +75,7 @@ Usage: bcr [<options>] <input_data_file>
 
 The **# of bars** options allows the user to specify how many bar he or she wishes to display in the animation. If the database has more bars than requested via command line, the program should display only what was requested in this option. On the other hand, if the number of bars in the database is less than what has been requested through the command line interface (CLI), you should display only the bars available; you cannot created more bars just because the user requested it, right?
 
-The **fps** means the number of bar charts that should be displayed in a single second. If the user sets this value to 2, for instance, your program should display two bar charts in sequence every second.
+The **fps** means the number of bar charts that should be displayed in sucession during a single second. If the user sets this value to 2, for instance, your program should display two bar charts in sequence every second.
 
 Because the printing of such a simple data is quite fast (probably less than 1 millisecond), your program should _sleep_ (pause) for a while, so that the user can see the animation in the requested speed. An animation, in this context, is done just by printing out the sequence of bar charts in the terminal, _pausing_ the program for a short period of time, printing out the next bar chart, pausing for a while, and so on. This simple action will naturally make the terminal screen roll up, creating an "illusion" that the bar chart is animated, if the terminal height is set properly. What you need to do is determined how many milliseconds you program should be paused for, based on the `fps` value provided by the user. For instance, suppose the user requested `bcr -fps 12 citied.dat`; this means you have to pause the current thread for $`1000ms / 12 \approx 83ms`$. This can be done with the `<thread>` as follows:
 
